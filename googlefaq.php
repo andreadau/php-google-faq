@@ -35,8 +35,14 @@ $db = [
         contenute nell'URL referrer potrebbero essere disponibili mediante Google Analytics o un'API (Application Programming Interface). Inoltre, gli inserzionisti 
         potrebbero ricevere informazioni relative all' esatte parole chiave che hanno determinato il clic su un annuncio.",
     ],
+];
+$nav = [
+    "Introduzione",
+    "Norme sulla privacy",
+    "Termini di servizio",
+    "Tecnologie",
+    "Domande Frequenti"
 ]
-
 ?>
 
 <!DOCTYPE html>
@@ -44,13 +50,31 @@ $db = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,300&display=swap" 
+    rel="stylesheet">
     <title>Google Faq</title>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="">
+        <h1>Privacy & Termini</h1>
+        </div>
+        <div class="nav-link">
+        <?php
+            foreach ($nav as $value) {?>
+                <a href=""><?php echo $value; ?></a>
+        <?php } ?>
+        </div>
+     </nav>       
+    <div class="container">
     <?php
         foreach ($db as $faq => $value) {?>
             <h1><?php echo $value["question"]; ?></h1>
             <p><?php echo $value["answer"]; ?></p>
         <?php } ?>
+    </div>
 </body>
 </html>
